@@ -1,12 +1,21 @@
-# elastic-homebrew-testing
-This Repository has the purpose of storing the data regarding a personal project about deploying an Elasticsearch instance with homebrew commands on a macOS
-# Elastic Labs (Homebrew Edition)
+# Local Elastic Stack (Docker)
 
-Hands-on labs to practice Elasticsearch using a **local Homebrew setup**.
+Spin up Elasticsearch + Kibana locally using Docker Compose.
+
+## Requirements
+- Docker Desktop (with Compose v2)
+- Ports `9200` (Elasticsearch) and `5601` (Kibana) available
+- An `.env` file in this repo (already present)
 
 ## Quick Start
-1. Install Elasticsearch + Kibana:
-   ```bash
-   brew tap elastic/tap
-   brew install elastic/tap/elasticsearch-full
-   brew install elastic/tap/kibana-full
+
+```bash
+# start
+docker compose up -d
+
+# check containers
+docker compose ps
+
+# follow logs (Ctrl+C to stop following)
+docker compose logs -f elasticsearch
+docker compose logs -f kibana
